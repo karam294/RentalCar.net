@@ -72,7 +72,7 @@ namespace I3332_Project
                     return;
                 }
 
-                int totalDays = (endDate - startDate).Days;
+                int totalDays = 1+(endDate - startDate).Days;
                 decimal totalPrice = totalDays * pricePerDay;
 
                 string connStr = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;

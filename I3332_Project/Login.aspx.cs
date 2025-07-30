@@ -21,7 +21,7 @@ namespace I3332_Project
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            string connStr = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;//Retrieves the database connection string from web.config
+            string connStr = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
             try
             {
@@ -29,35 +29,44 @@ namespace I3332_Project
                 {
                     conn.Open();
 
-                    // Use parameterized query to avoid SQL injection
-                    string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
-                    string getIdQuery = "SELECT Id FROM Users WHERE Username = @Username";
-                    MySqlCommand idCmd = new MySqlCommand(getIdQuery, conn);
-                    idCmd.Parameters.AddWithValue("@Username", username);
+                    // Single query to get Id and Role if username and password match
+                    string query = "SELECT Id, Role FROM Users WHERE Username = @Username AND Password = @Password";
 
-                    int userId = Convert.ToInt32(idCmd.ExecuteScalar());
-                    //Session["UserId"] = userId;
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Username", username);
                         cmd.Parameters.AddWithValue("@Password", password);
 
-                        int userCount = Convert.ToInt32(cmd.ExecuteScalar());
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int userId = reader.GetInt32("Id");
+                                string role = reader.GetString("Role");
 
-                        if (userCount > 0)
-                        {
-                            // Successful login
-                            lblMessage.ForeColor = System.Drawing.Color.Green;
-                            lblMessage.Text = "Login successful!";
-                            Session["UserName"] = username;
-                            Session["UserId"] = userId;
-                            // Redirect to another page (e.g., Dashboard)
-                             Response.Redirect("~/CarListing.aspx");
-                        }
-                        else
-                        {
-                            lblMessage.ForeColor = System.Drawing.Color.Red;
-                            lblMessage.Text = "Invalid username or password.";
+                                // Save info to session
+                                Session["UserName"] = username;
+                                Session["UserId"] = userId;
+                                Session["UserRole"] = role;
+
+                                lblMessage.ForeColor = System.Drawing.Color.Green;
+                                lblMessage.Text = "Login successful!";
+
+                                // Redirect based on role
+                                if (role == "admin")
+                                {
+                                    Response.Redirect("~/AdminCarListing.aspx"); // Replace with your admin page
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/CarListing.aspx");
+                                }
+                            }
+                            else
+                            {
+                                lblMessage.ForeColor = System.Drawing.Color.Red;
+                                lblMessage.Text = "Invalid username or password.";
+                            }
                         }
                     }
                 }
@@ -68,5 +77,6 @@ namespace I3332_Project
                 lblMessage.Text = "Error: " + ex.Message;
             }
         }
+
     }
 }

@@ -47,8 +47,7 @@
               "RelativeToolTip": "I3332_Project\\Default.aspx.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T17:05:07.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T17:05:07.983Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,11 @@
               "RelativeToolTip": "I3332_Project\\Default.aspx.designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T17:05:06.339Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T17:05:06.339Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

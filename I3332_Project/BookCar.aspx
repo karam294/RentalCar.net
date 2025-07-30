@@ -41,8 +41,8 @@
                 <asp:TextBox ID="txtPhoneNumber" runat="server" /><br /><br />
 
                 <!-- Price Field -->
-                <label for="txtPrice">Price:</label><br />
-                <asp:TextBox ID="txtPrice" runat="server" /><br /><br />
+               
+               
 
                 <!-- Submit Button -->
             </form>

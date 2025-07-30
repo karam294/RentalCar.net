@@ -53,7 +53,7 @@
         <!-- Right Side: Home Button + Settings -->
         <div class="d-flex align-items-center justify-content-end">
             <a class="navbar-brand" runat="server" href="CarListing.aspx">Home</a>
-            <button type="button" class="btn btn-outline-light btn-sm ms-2" onclick="toggleTheme()">Settings</button>
+           
         </div>
 
     </div>
