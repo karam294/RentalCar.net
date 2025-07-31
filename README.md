@@ -1,7 +1,24 @@
-### Setting Up the Database
+✅ Setting Up the Database
+Open MySQL Workbench (or your preferred MySQL client).
 
-Run the scrip in the database.sql
+Open the database.sql file included in the project.
 
+Run the script to create the i3332 database and its tables.
+
+🔧 Configure the Connection
+Open the configuration file (e.g., web.config, .env, or wherever your database connection string is stored).
+
+Update the following values as needed:
+
+Server name / host
+
+Username
+
+Password
+
+Database name
+
+Make sure the values match your local MySQL setup.
 
 # Car Rental System (ASP.NET WebForms + MySQL)
 
