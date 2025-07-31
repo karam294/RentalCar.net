@@ -1,3 +1,8 @@
+### Setting Up the Database
+
+Run the scrip in the database.sql
+
+
 # Car Rental System (ASP.NET WebForms + MySQL)
 
 This is a simple car rental web application built using **ASP.NET WebForms** (.NET Framework) and **MySQL**. It supports user authentication and provides functionality for both normal users and administrators.
