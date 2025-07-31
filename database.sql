@@ -2,7 +2,7 @@
 CREATE DATABASE i3332;
 
 -- Use the database
-USE i3332;
+USE i3332;  
 
 -- Create the users table
 CREATE TABLE users (
